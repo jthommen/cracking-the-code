@@ -1,19 +1,10 @@
 /*
 ###
-Question 2.1: Remove Dups
+Searching: Hashing with separate chaining (Singly linked list)
+###
 
 Description:
-Write code to remove duplicates from an unsorted linked list.
-Follow-up: How would you solve this problem, if a temporary
-buffer is not allowed?
-
-Example:
-
-
-Hint:
-
-Runtime:
-O(N)
+Using array of singly linked lists.
 
 */
 
@@ -38,32 +29,38 @@ private:
 
     link* heads;
     int N, M;
-    int nullItem;
+    Item nullItem;
     
     
     Item searchR(link t, Key v)
     {
         if(t==0) return nullItem;
-        if(t->item == v) return t->item;
+        if(t->item.key() == v) return t->item;
         return searchR(t->next, v);
     }
 
     // Hashing funtion for int keys
     inline int hash(Key v, int M) { return v % M; }
 
-    inline void printR(link x)
-    { cout << x->item << " "; }
+    void printR(link x)
+    {
+        while(x->next != 0)
+        {
+            cout << x->item << " ";
+            x = x->next;
+        }
+    }
 
     void removeR(Item x)
     {
         link t = x->next;
         x->next = t->next;
-        // delete x ? Memory leak?
+        delete x;
         return x;
     }
 
 public:
-    ST(int maxN): N{0}, M{(maxN+5)/5}, heads{new link[M]}, nullItem{0}
+    ST(int maxN): N{0}, M{maxN/5}, heads{new link[M]} 
     { for(int i=0; i<M; i++) heads[i] = 0; }
 
     int count() { return N; }
@@ -78,11 +75,17 @@ public:
         N++;
     }
 
+    void printAll()
+    {
+        // Iterate over heads arrays
+        // print elements
+        for(int i=0; i<M; i++) printR(heads[i]);
+        cout << endl;
+        return;
+    }
+
     void remove(Item x)
     { return removeR(x);}
-
-    void print(Item x)
-    { return printR(x); }
 };
 
 
@@ -91,27 +94,18 @@ int main()
 
     int N = 10;
     
-
-    // Create array of N elements
-    int seed[N] = {2,3,4,2,1,3,5,3,1,3};
-
-    // Print array
-    cout << "Unsorted Array with duplicates:\n";
-    for(int i=0; i<N; i++) cout << seed[i] << " ";
-    cout << endl;
-
-    // using hashtable to remove duplicates
-    cout << "Unsorted, duplicates removed:\n";
     ST<int, int>* st = new ST<int, int>(N);
-    for(int i=0; i<N; i++)
-    {
-        if(st->search(seed[i]) == 0)
-        {
-            st->insert(seed[i]);
-            cout << seed[i] << " ";
-        }
-    }
-    cout << endl;
+
+    // Create list of N elements
+    int seed[N] = {1,2,3,1,2,3,1,2,3,4};
+
+    //
+    for(int i=0; i<N; i++) st->insert(rand() % 1000);
+
+    cout << "Unsorted List: ";
+    st->printAll();  
+
+    // Create hash table with separate chaining
 
     return 0;
 

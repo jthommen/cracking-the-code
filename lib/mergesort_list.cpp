@@ -114,6 +114,15 @@ int length(link t)
     return cnt;
 }
 
+// removes the link after t
+link removeNode(link t)
+{
+    link x = t->next;
+    t->next = x->next;
+    delete x;
+    return t;
+}
+
 int main()
 {
     int N = 15;
@@ -133,16 +142,20 @@ int main()
         // then update t to 'new' created node
         t = (t->next = new node(rand() % 1000, 0));
 
-    // print link
-    printList(a);
-
     // print list length
     cout << "List length: " << length(a) << endl;
     
+    // print link
+    printList(a);
+
+    
     
     // sort list
-    a = mergesort(a);
+    mergesort(a);
     cout << "List length: " << length(a) << endl;
+    printList(a);
+
+    removeNode(a);
     printList(a);
 
    return 0;
