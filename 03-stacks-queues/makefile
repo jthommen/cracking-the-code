@@ -10,7 +10,7 @@ LIB=lib
 CXXFLAGS = $(shell fltk-config --cxxflags) -g -std=c++14 -I $(LIB)
 
 # Set app name
-FNAME=03_02
+FNAME=03_06
 
 # Set dependencies needed to compile
 # HEADERS = $(LIB)/analysis.hpp $(LIB)/list.hpp Point.hpp
