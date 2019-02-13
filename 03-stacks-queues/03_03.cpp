@@ -1,6 +1,7 @@
 /*
 ###
 Question 3.3: Stack of Plates
+###
 
 Description:
 Imagine a (literal) stack of plates. If the stack gets too high, it might topple.

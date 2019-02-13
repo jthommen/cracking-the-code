@@ -1,6 +1,7 @@
 /*
 ###
 Question 2.6: Palindrome
+###
 
 Description:
 Implement a function to check if a linked list is

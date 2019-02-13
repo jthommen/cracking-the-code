@@ -1,6 +1,7 @@
 /*
 ###
 Question 4.5: Validate BST
+###
 
 Description:
 Implement a function to check if a binary tree is a binary
@@ -74,7 +75,7 @@ void insertS(link& h, int x)
         return;
     }
     if(h->l == 0) insertS(h->l, x);
-    else insertR(h->r, x);
+    else insertS(h->r, x);
 }
 
 void inOrder(link h)

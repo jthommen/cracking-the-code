@@ -1,6 +1,7 @@
 /*
 ###
 Question 4.4: Check Balanced
+###
 
 Description:
 Implement a function to check if a binary tree is balanced. For the purpose of this

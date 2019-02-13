@@ -1,6 +1,7 @@
 /*
 ###
 Question 2.3: Delete Middle Node
+###
 
 Description:
 Implement an algorithm to delete a node in the middle

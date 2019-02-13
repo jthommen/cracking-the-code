@@ -1,6 +1,7 @@
 /*
 ###
 Question 4.2: Minimal Tree
+###
 
 Description:
 Given a sorted (increasing order) array with unique integer elements,

@@ -1,6 +1,7 @@
 /*
 ###
 Question 3.6: Animal Shelter
+###
 
 Description:
 An animal shelter, which holds only dogs and cats, operates on a strict "first in, 
