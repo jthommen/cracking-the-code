@@ -10,7 +10,6 @@ private:
     {
         T value;
         node* next;
-        node* prev;
         node(T v, node* n): value{v}, next{n} {}
     };
     typedef node* link;
