@@ -69,7 +69,7 @@ link mergesort(link c)
     //cout << "c: " << c->item << endl;
 
     // while we're not at the end, continue splitting
-    // faster runne is break condition, two conditions, since two steps
+    // faster runner is break condition, two conditions, since two steps
     while( (b != 0) && (b->next != 0))
     {
         

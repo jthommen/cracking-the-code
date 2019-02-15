@@ -37,6 +37,7 @@ class directedGraph
         if(adj.count(v) == 0)
         {
             forward_list<int> fl;
+            V++;
             adj[v] = fl;
         }
         adj[v].push_front(w);
@@ -52,6 +53,7 @@ class directedGraph
 public:
     directedGraph(): V{0}{}
     void addEdge(int v, int w){ addEdgeDG(v, w); }
+    int size(){ return V; }
     void printEdges(int v) { printEdgesDG(v); }
 };
 

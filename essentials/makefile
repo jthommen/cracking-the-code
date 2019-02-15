@@ -10,7 +10,7 @@ LIB=lib
 CXXFLAGS = $(shell fltk-config --cxxflags) -g -std=c++14 -I $(LIB)
 
 # Set app name
-FNAME=queue
+FNAME=dfs
 
 # Set dependencies needed to compile
 # HEADERS = $(LIB)/analysis.hpp $(LIB)/list.hpp Point.hpp
