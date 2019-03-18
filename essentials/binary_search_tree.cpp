@@ -4,18 +4,19 @@ Playing with binary search trees
 ###
 
 Definition:
-binary search tree (BST) - A binary tree that has a key associated with each of its internal 
-nodes, with the additional property that the key in any node is larger than (or equal to) the
-keys inall nodes in that node's left subtree and smaller than (or equal to) the keys in all
-nodes in that node's right structure. 
-STL set - Red-Black Tree (self balancing binary search tree) with rebalancing over rotations.
-Ordered tree structure, allowing fast access.
+binary search tree (BST) - A binary tree that has a key associated with each of
+its internal nodes, with the additional property that the key in any node
+is larger than (or equal to) the keys in all nodes in that node's left subtree
+and smaller than (or equal to) the keys in all nodes in that node's
+right structure.
+STL set/map - Red-Black Tree (self balancing binary search tree) using
+rebalancing with rotations. Ordered tree structure, allowing fast access.
 
 ADT Properties:
-Insert: 1.39 lg N comparisons on average in a tree with N random keys, N worst case.
-Search: 1.39 lg N comparisons on average in a tree with N random keys, N worst case.
+Insert: 1.39 lg N comp on average in a tree with N random keys, N worst case.
+Search: 1.39 lg N comp on average in a tree with N random keys, N worst case.
 Remove: Depending on strategy, e.g. lazy removal, periodical rebuild, etc.
-Select: same as search/insert
+Select: Same as search/insert
 Sort: Already sorted, access via in-order traversal
 Join: O(N) by using an additional array
 
@@ -23,6 +24,7 @@ Drawbacks:
 - Using space for links
 - Trees can become poorly balanced and loose average search time of 1.4 lg N
 */
+
 #include<iostream>
 #include<set> // using keys only
 #include<vector>
@@ -51,7 +53,7 @@ class binarySearchTree
     int searchBST(link l, int key)
     {
         if(l == 0) return -1;
-        
+
         int r = l->key;
 
         if(key == r) return l->key;
@@ -85,7 +87,7 @@ class binarySearchTree
         createBalancedBST(l->l, v, start, mid-1);
         createBalancedBST(l->r, v, mid+1, end);
     }
-    
+
     void printInOrderBST(link l)
     {
         if(l == 0) return;
@@ -115,7 +117,7 @@ int main()
     ###
     */
 
-    // balanced tree from random values 
+    // balanced tree from random values
     binarySearchTree bst;
 
     for(int i=0; i<100; i++)
@@ -138,7 +140,7 @@ int main()
 
     /*
     ###
-    STL set
+    STL map
     ###
     */
 

@@ -4,16 +4,15 @@ Playing with binary search (array)
 ###
 
 Properties:
-Sort: 
+Sort:
 - Worst case: log N
 - Best case: 1
-- Average case: log N 
+- Average case: log N
 - Worst case space: 1
 
 */
 #include<iostream>
 using namespace std;
-
 
 int binarySearch(int a[], int v, int l, int r)
 {
@@ -25,7 +24,6 @@ int binarySearch(int a[], int v, int l, int r)
     }
     return -1;
 }
-
 
 void printArray(int a[], int l)
 {

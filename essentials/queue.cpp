@@ -1,23 +1,25 @@
 /*
 ###
-Playing with queues
+Playing with Queues
 ###
 
 Definition:
-Queue - 
-STL queue - Adaptor on a container, using deque per default (deque is a T** of vectors).
+Queue - Data structure only allowing insertion at the end and retrieval at
+the front.
+STL queue - Adaptor on a container, using deque per default (deque is a
+T** of vectors).
 https://www.codeproject.com/Articles/5425/An-In-Depth-Study-of-the-STL-Deque-Container
 
 ADT Properties:
 Insert: O(1) on the bottom
 Search: -
 Remove: O(1) top element
-Select: - 
+Select: -
 Sort:  -
 Join:  O(N) by inserting
 
-
 */
+
 #include<iostream>
 #include<queue>
 using namespace std;
@@ -28,10 +30,9 @@ Queue
 ###
 */
 
-
 class queueArray
 {
-    int* q; 
+    int* q;
     int N;
     int head;
     int tail;
@@ -51,9 +52,9 @@ public:
     }
 
     int get()
-    {   
+    {
         // wraps around head to first element again
-        // returns 0 if head is 0 
+        // returns 0 if head is 0
         head = head % N;
 
         // return first inserted element
@@ -82,7 +83,7 @@ int main()
 
     for(int i=0; i<3; i++)
         qa.put(i);
-    
+
     for(int i=0; i<3; i++)
         cout << qa.get() << " ";
     cout << endl;
@@ -96,7 +97,7 @@ int main()
     queue<int> q;
     for(int i=0; i<3; i++)
         q.push(i);
-    
+
     cout << "front: " << q.front() << endl;
     cout << "back: " << q.back() << endl;
     cout << "size: " << q.size() << endl;
@@ -108,4 +109,3 @@ int main()
     }
     cout << "size: " << q.size() << endl;
 }
-

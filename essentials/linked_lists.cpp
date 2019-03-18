@@ -4,22 +4,22 @@ Playing with linked lists
 ###
 
 Definition:
-list - Either singly linked or doubly linked, implemented with node structs or classes.
-Linking list nodes together with pointers to the next node. Circular lists are often considered
-corrupted or broken.
+list - Either singly linked or doubly linked, implemented with
+node structs or classes. Linking list nodes together with pointers
+to the next node. Circular lists are often considered corrupted or broken.
 STL list - doubly linked list, size aware, with loads of convenient functions.
 STL forward_list - singly linked list
 
 ADT Properties:
 Insert: O(1)
-Search: 
+Search:
 Remove: O(1)
 Select:
 Sort:
 Join:
 
-
 */
+
 #include<iostream>
 #include<list>
 using namespace std;
@@ -40,7 +40,7 @@ typedef node* link;
 
 // insert node x after t
 link insertH(int val, link t)
-{   
+{
     link x = new node(val, t->next);
     t->next = x;
     return x;
@@ -167,7 +167,7 @@ int main()
     // remove first and last item
     l1.pop_front();
     l1.pop_back();
-    
+
     // now front == back
     cout << l1.back() << endl; // 2
     cout << l1.front() << endl; // 2

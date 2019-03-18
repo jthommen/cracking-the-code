@@ -1,10 +1,10 @@
 /*
 ###
-Playing with depth first search ()
+Playing with DFS: Depth First Search (STL map & STL forward_list graph)
 ###
 
 Properties:
-Sort: 
+Sort:
 - Worst case:
 - Best case:
 - Average case:
@@ -21,60 +21,60 @@ using namespace std;
 
 class directedGraph
 {
-    int V;
-    unordered_map<int, forward_list<int>> adj;
+  int V;
+  unordered_map<int, forward_list<int>> adj;
 
-    void addEdgeDG(int v, int w)
+  void addEdgeDG(int v, int w)
+  {
+    if(adj.count(v) == 0)
     {
-        if(adj.count(v) == 0)
-        {
-            forward_list<int> fl;
-            V++;
-            adj[v] = fl;
-        }
-        adj[v].push_front(w);
+        forward_list<int> fl;
+        V++;
+        adj[v] = fl;
     }
+    adj[v].push_front(w);
+  }
 
-    void printEdgesDG(int v)
+  void printEdgesDG(int v)
+  {
+    if(adj.count(v) != 0)
+        for(auto edge : adj[v])
+            cout << edge << " ";
+        cout << endl;
+  }
+
+  void DFSUtil(int s, vector<bool>& v)
+  {
+    v[s] = true;
+    cout << s << " ";
+
+    // recurse through all edges of s
+    forward_list<int>::iterator i;
+    for(i = adj[s].begin(); i != adj[s].end(); i++)
     {
-        if(adj.count(v) != 0)
-            for(auto edge : adj[v])
-                cout << edge << " ";
-            cout << endl;
+      cout << "\nEdge of " << s << ": " << *i << endl;
+      if(!v[*i])
+          DFSUtil(*i, v);
     }
-
-    void DFSUtil(int s, vector<bool>& v)
-    {
-        v[s] = true;
-        cout << s << " ";
-
-        // recurse through all edges of s
-        forward_list<int>::iterator i;
-        for(i = adj[s].begin(); i != adj[s].end(); i++)
-        {
-            cout << "\nEdge of " << s << ": " << *i << endl;
-            if(!v[*i])
-                DFSUtil(*i, v);
-        }
-    }
+  }
 
 public:
-    directedGraph(): V{0}{}
-    void addEdge(int v, int w){ addEdgeDG(v, w); }
-    int size() { return V; }
-    void printEdges(int v) { printEdgesDG(v); }
-    void DFS(int s)
-    {
-        if(s > V) return;
+  directedGraph(): V{0}{}
+  void addEdge(int v, int w){ addEdgeDG(v, w); }
+  int size() { return V; }
+  void printEdges(int v) { printEdgesDG(v); }
+  void DFS(int s)
+  {
+    if(s > V) return;
 
-        // create visited vector
-        vector<bool> v;
-        for(int i=0; i<V; i++)
-            v.push_back(false);
-        
-        DFSUtil(s, v);
-        cout << endl;
-    }
+    // create visited vector
+    vector<bool> v;
+    for(int i=0; i<V; i++)
+        v.push_back(false);
+
+    DFSUtil(s, v);
+    cout << endl;
+  }
 };
 
 
@@ -82,19 +82,18 @@ public:
 
 int main()
 {
+  directedGraph dg;
+  dg.addEdge(0, 1);
+  dg.addEdge(0, 2);
+  dg.addEdge(1, 2);
+  dg.addEdge(2, 0);
+  dg.addEdge(2, 3);
+  dg.addEdge(3, 3);
 
-    directedGraph dg;
-    dg.addEdge(0, 1); 
-    dg.addEdge(0, 2); 
-    dg.addEdge(1, 2); 
-    dg.addEdge(2, 0); 
-    dg.addEdge(2, 3); 
-    dg.addEdge(3, 3);
+  cout << "Size: " << dg.size() << endl;
 
-    cout << "Size: " << dg.size() << endl;
+  cout << "DFS starting from vertex 0:\n";
+  dg.DFS(2);
 
-    cout << "DFS starting from vertex 0:\n";
-    dg.DFS(2);
-
-    return 0;
+  return 0;
 }

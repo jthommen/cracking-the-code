@@ -1,23 +1,25 @@
 /*
 ###
-Playing with quicksort (array)
+Playing with Quicksort (array)
 ###
 
 Definition:
-quicksort - (sRecursive) Sorting algorithm using random partitioning, requires random element access.
+quicksort - (Recursive) Sorting algorithm using random partitioning, requires
+random element access.
 C qsort - C quicksort implementation for fast, unstable sorting
-STL sort  - very fast sorting with introsort (hybrid algorithm: quicksort, heapsort & insertion sort)
+STL sort  - very fast sorting with introsort (hybrid algorithm: quicksort,
+heapsort & insertion sort)
 
 Properties:
-Sort: 
+Sort:
 - Worst case: N^2/2 (sorted or reverse order)
 - Average case: 2N ln N
 - In place, unstable
 - Stack size proportional to lg N for random files
 - Make it faster with hybrid for small files (e.g. insertion sort)
 
-
 */
+
 #include<algorithm>
 #include<iostream>
 using namespace std;
@@ -35,7 +37,6 @@ void printArray(int a[], int l)
         cout << a[i] << " ";
     }
     cout << endl;
-
 }
 
 // Exchange function by reference
@@ -53,7 +54,8 @@ int partition(int a[], int l, int r)
     int v = a[r]; // arbitrary choice of partition element
 
     printArray(a, r-l+1);
-    cout << "Partition element: " << a[r] << ", left: " << a[l] << ", right: " << a[r] << endl;
+    cout << "Partition element: " << a[r] << ", left: " << a[l]
+      << ", right: " << a[r] << endl;
     while(true)
     {
         // scan from the left until we find an element
@@ -68,10 +70,10 @@ int partition(int a[], int l, int r)
         // if left pointer equals or is bigger than right pointer
         // (pointer cross) we break the main loop
         if (i >= j){
-            cout << "Break loop: a[i]==" << a[i] << " >= a[j]==" << a[j] << endl;
+            cout << "Break loop: a[i]==" << a[i]
+              << " >= a[j]==" << a[j] << endl;
             break;
         }
-            
 
         // else we keep going exchanging out of place elems between
         // partition sizes
@@ -79,9 +81,10 @@ int partition(int a[], int l, int r)
         exch(a[i], a[j]);
     }
 
-    // exchange partition element with the leftmost element of the right subfile
-    // element pointed to by left pointer
-    cout << "Final partition element exchange: " << a[i] << " with " << a[r] << endl;
+    // exchange partition element with the leftmost element of the right
+    // subfile element pointed to by left pointer
+    cout << "Final partition element exchange: " << a[i]
+      << " with " << a[r] << endl;
     exch(a[i], a[r]);
     cout << "New partition element: " << a[i] << endl;
     return i;
@@ -125,7 +128,7 @@ int main()
     int a1[10];
     for(int i=0; i<10; i++)
         a1[i] = rand() % 100;
-    
+
     printArray(a1, 10);
     sort(a1, a1+10);
     printArray(a1, 10);

@@ -1,10 +1,10 @@
 /*
 ###
-Playing with breadth first search (queue)
+Playing with BFS: Breadth First Search (Queue)
 ###
 
 Properties:
-Sort: 
+Sort:
 - Worst case:
 - Best case:
 - Average case:
@@ -72,21 +72,23 @@ void directedGraph::BFS(int s)
 
     while(!q.empty())
     {
-        // get next vertex from the queue
-        s = q.front();
-        // print path of bfs
-        cout << s << " ";
+      // get next vertex from the queue
+      s = q.front();
+      // print path of bfs
+      cout << s << " ";
 
-        // remove elem
-        q.pop();
+      // remove elem
+      q.pop();
 
-        // Iterate over it's edges, mark as visited and it to the queue
-        for(i = adj[s].begin(); i != adj[s].end(); i++)
-            if(!v[*i])
-            {
-                v[*i] = true;
-                q.push(*i);
-            }
+      // Iterate over it's edges, mark as visited and it to the queue
+      for(i = adj[s].begin(); i != adj[s].end(); i++)
+      {
+        if(!v[*i])
+        {
+            v[*i] = true;
+            q.push(*i);
+        }
+      }
     }
     cout << endl;
 }
@@ -96,14 +98,14 @@ int main()
 {
 
     directedGraph dg;
-    dg.addEdge(0, 1); 
-    dg.addEdge(0, 4); 
-    dg.addEdge(0, 5); 
-    dg.addEdge(1, 3); 
-    dg.addEdge(1, 4); 
-    dg.addEdge(2, 1); 
-    dg.addEdge(3, 2); 
-    dg.addEdge(3, 4); 
+    dg.addEdge(0, 1);
+    dg.addEdge(0, 4);
+    dg.addEdge(0, 5);
+    dg.addEdge(1, 3);
+    dg.addEdge(1, 4);
+    dg.addEdge(2, 1);
+    dg.addEdge(3, 2);
+    dg.addEdge(3, 4);
 
     cout << "BFS starting from vertex 0: ";
     dg.BFS(0);

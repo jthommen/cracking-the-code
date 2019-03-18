@@ -33,7 +33,7 @@ int main()
 
     // Declares array holding 5 ints
     int a[5];
-    cout << a[0] << endl; // prints garbage value
+    cout << a[0] << endl; // prints garbage value (not initialized yet)
 
     // Arrays can't be assigned after its declaration
     // a = {1,3,5,7,9}; // error
@@ -54,8 +54,8 @@ int main()
     */
 
     // declars a vector holding ints
-    vector<int> v; 
-    //cout << v[0] << endl; // segmentation fault, not space allocated at pos 0
+    vector<int> v;
+    //cout << v[0] << endl; // segmentation fault, no space allocated at pos 0
 
     // initialization with initializer list
     v = {1,3,5,7,9};
@@ -67,12 +67,13 @@ int main()
         v1.push_back(i);
     cout << v1[3] << endl;
 
-    // Replacing values, but index must exist already by allocation or push_back
+    // Replacing values: Index must exist already by allocation or push_back
     for(int i=0; i<5; i++)
         v1[i] = 10;
     cout << v1[2] << endl;
 
-    // Index start at 0 for both data structures otherwise, out of range error occurs
+    // Index start at 0 for both data structures
+    // otherwise, out of range error occurs
     vector<int> v2;
     // Generates elements 1-5 at index 0-4
     for(int i=1; i<=5; i++)

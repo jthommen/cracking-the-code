@@ -4,21 +4,21 @@ Playing with stacks
 ###
 
 Definition:
-Stack - An abstract data structure that comprises two basic operations: insert (push) a
-new item on top of the stack and remove (pop) the item off the stack that was most
-recently inserted. Here are implementations via vectors.
-STL stack - Adaptor on a container, using deque per default (deque is a T** of vectors).
+Stack - An abstract data structure that comprises two basic operations:
+  insert (push) a new item on top of the stack.
+  remove (pop) the item off the stack that was most recently inserted.
+Here are implementations via vectors.
+STL stack - Adaptor on a container, using deque per default (deque is a
+T** of vectors).
 https://www.codeproject.com/Articles/5425/An-In-Depth-Study-of-the-STL-Deque-Container
 
 ADT Properties:
 Insert: O(1) on top
 Search: -
 Remove: O(1) top element
-Select: - 
+Select: -
 Sort:  -
 Join:  O(N) by inserting
-
-
 */
 
 #include<iostream>
@@ -45,13 +45,11 @@ public:
         s.pop_back();
     }
     int peek()
-    { 
+    {
         if(empty()) throw out_of_range("underflow");
         return s.back();
     }
 };
-
-
 
 int main()
 {
@@ -93,6 +91,5 @@ int main()
         s.pop();
     }
     cout << endl;
-
 
 }

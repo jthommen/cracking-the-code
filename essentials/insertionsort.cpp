@@ -4,11 +4,11 @@ Playing with insertion sort (array)
 ###
 
 Properties:
-Sort: 
+Sort:
 - Worst case: N^2
 - Best case: N
-- Average case: N^2 
-- Worst case space: N 
+- Average case: N^2
+- Worst case space: N
 
 */
 
@@ -68,7 +68,7 @@ int main()
     int a[10];
     for(int i=0; i<10; i++)
         a[i] = rand() % 100;
-    
+
     cout << "Unsorted:\n";
     printArray(a, 10);
 

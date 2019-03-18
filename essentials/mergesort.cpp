@@ -1,6 +1,6 @@
 /*
 ###
-Playing with mergesort(list)
+Playing with mergesort (list)
 ###
 
 Definition:
@@ -8,7 +8,7 @@ mergesort - Divide (combine) and conquer sorting algorithm
 STL merge - For merging two containers in sorted fashion
 
 Properties:
-Sort: 
+Sort:
 - Worst case: N log N
 - Average case: N log N
 - Stack size: worst case N
@@ -62,7 +62,7 @@ link merge(link a, link b)
     c->next = (a==0) ? b : a;
 
     return head->next;
-    
+
 }
 
 link mergesort(link c)
@@ -128,7 +128,7 @@ int main()
     list<int> l2 = {1,3,5,7};
 
     l1.merge(l2);
-    
+
     for(auto elem : l1) cout << elem << " ";
     cout << endl;
 

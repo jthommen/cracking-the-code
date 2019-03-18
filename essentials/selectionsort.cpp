@@ -1,19 +1,18 @@
 /*
 ###
-Playing with selection sort (array)
+Playing with Selection Sort (array)
 ###
 
 Properties:
-Sort: 
+Sort:
 - Worst case: N^2
 - Best case: N^2
 - Average case: N^2
-- Worst case space: 1 
-
+- Worst case space: 1
 */
+
 #include<iostream>
 using namespace std;
-
 
 void exch(int& A, int& B)
 {
